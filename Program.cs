@@ -62,7 +62,7 @@ namespace CatWorx.BadgeMaker {
             Console.WriteLine(intNum.GetType());
 
 
-            /*            C# KEY VALUE STORAGE                  */
+            /*            C# Dictionary                  */
             /*  -Declare the Dictionary type and give it the key:value pair by declaring <string, int>
                 -create the variable myScoreboard and declare it as a "new Dictionary" with the key:value pair
                 -stored as a function    */
@@ -104,6 +104,21 @@ namespace CatWorx.BadgeMaker {
             /* console log the indexes you will be using I.E. ("I like {0}, {1}, and {2}")
                 pass the arguements of the variables with the stored values I.E. (firstFood, secondFood, thirdFood) */
             Console.WriteLine("I like {0}, {1}, and {2}", firstFood, secondFood, thirdFood);
+
+
+            /*        C# LIST'S          */
+            /* Declare the variable of employees as a list 
+                declare a new list with a value of <string> */
+            List<string> employees = new List<string>() { "adam", "amy" };
+            employees.Add("barbara");
+            employees.Add("billy");
+            Console.WriteLine("My employees include {0}, {1}, {2}, {3}", employees[0], employees[1], employees[2], employees[3]);
+
+
+            /*          C# FOR LOOPS            */
+            for (int i = 0; i < employees.Count; i++) {
+            Console.WriteLine(employees[i]);
+            }
         }
     }
 }
