@@ -118,5 +118,9 @@
             /* The "??" operator will check for a null value and replace it with an empty string */
             string input = Console.ReadLine() ?? "";
 
+            // As long as a cs file falls under the same namespace and public is declared, it can be reached through all other files
+            /* When declaring a list and passing it a class
+                your list declaration needs to include the class */
+           /*  List<Employee> employees = new List<Employee>(); */
         }
     }
