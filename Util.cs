@@ -42,10 +42,14 @@ namespace CatWorx.BadgeMaker
 
         public static void MakeBadges(List<Employee> employees)
         {
-            SKImage newImage = SKImage.FromEncodedData(File.OpenRead("badge.png"));
-
-            SKData data = newImage.Encode();
-            data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
+            // instance of HttpClient is disposed after code in the block has run
+            using (HttpClient client = new HttpClient())
+            {
+                for (int i = 0; i < employees.Count; i++)
+                {
+                    
+                }
+            }
         }
     }
 }

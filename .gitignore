@@ -12,6 +12,8 @@
 *.orig       # Own usage
 
 # Compiled files
+bin
+obj
 */bin/
 */obj/
 */Obj/       # git is case sensitive
@@ -20,3 +22,4 @@ PrecompiledWeb
 */ClientBin
 # Windows left-overs
 Thumbs.db  
+
