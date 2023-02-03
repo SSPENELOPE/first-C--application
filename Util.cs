@@ -1,3 +1,8 @@
+using System;
+using System.IO;
+using System.Collections.Generic;
+using System.Net.Http;
+using SkiaSharp;
 namespace CatWorx.BadgeMaker
 {
     class Util
@@ -33,6 +38,14 @@ namespace CatWorx.BadgeMaker
                     file.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
                 }
             }
+        }
+
+        public static void MakeBadges(List<Employee> employees)
+        {
+            SKImage newImage = SKImage.FromEncodedData(File.OpenRead("badge.png"));
+
+            SKData data = newImage.Encode();
+            data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
         }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Collections.Generic;
-
-namespace CatWorx.BadgeMaker
+﻿namespace CatWorx.BadgeMaker
 {
     class Program
     {
@@ -40,6 +36,7 @@ namespace CatWorx.BadgeMaker
             List<Employee> employees = GetEmployees();
             Util.PrintEmployees(employees);
             Util.MakeCSV(employees);
+            Util.MakeBadges(employees);
         }
     }
 }
