@@ -122,5 +122,20 @@
             /* When declaring a list and passing it a class
                 your list declaration needs to include the class */
            /*  List<Employee> employees = new List<Employee>(); */
+
+
+           /*    USING AND STREAMWRITER          */
+            /* This will use the streamwriter as much as you want */
+            StreamWriter file = new StreamWriter("data/employees.csv");
+
+            /* This will only use whatever code you put in the curly braces for the streamwriter, after that it stops writing the data
+             The keyword using has two distinct meanings that depend on the context (importing a namespace versus temporarily using a resource).  */
+             
+            using (StreamWriter file = new StreamWriter("data/employees.csv"))
+            {
+            // Any code that needs the StreamWriter would go in here
+            }
+
+
         }
     }

@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.IO;
+using System.Collections.Generic;
 
 namespace CatWorx.BadgeMaker
 {
@@ -30,22 +32,14 @@ namespace CatWorx.BadgeMaker
             // Passes the stored employees to the main
             return employees;
         }
-        /* Function to print employee names */
-        static void PrintEmployees(List<Employee> employees)
-        {
-            for (int i = 0; i < employees.Count; i++)
-            {
-                string template = "{0,-10}\t{1,-20}\t{2}";
-                Console.WriteLine(String.Format(template, employees[i].GetId(), employees[i].GetFullName(), employees[i].GetPhotoUrl()));
-            }
-        }
 
         /* Main function/entry point*/
         static void Main(string[] args)
         {
             // This is our employee-getting code now
             List<Employee> employees = GetEmployees();
-            PrintEmployees(employees);
+            Util.PrintEmployees(employees);
+            Util.MakeCSV(employees);
         }
     }
 }
