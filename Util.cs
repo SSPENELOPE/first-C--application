@@ -59,6 +59,8 @@ namespace CatWorx.BadgeMaker
                 int COMPANY_NAME_Y = 150;
                 int EMPLOYEE_NAME_Y = 600;
                 int EMPLOYEE_ID_Y = 730;
+
+                // Loop through our list of employees and create a badge
                 for (int i = 0; i < employees.Count; i++)
                 {
                     // Get the employee photo 
