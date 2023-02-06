@@ -3,10 +3,13 @@ using System.IO;
 using System.Collections.Generic;
 using System.Net.Http;
 using SkiaSharp;
+using System.Threading.Tasks;
 namespace CatWorx.BadgeMaker
 {
     class Util
     {
+
+
         // Method declared as "static"
         /* Function to print employee names */
         public static void PrintEmployees(List<Employee> employees)
@@ -40,14 +43,27 @@ namespace CatWorx.BadgeMaker
             }
         }
 
-        public static void MakeBadges(List<Employee> employees)
+        async public static Task MakeBadges(List<Employee> employees)
         {
             // instance of HttpClient is disposed after code in the block has run
             using (HttpClient client = new HttpClient())
             {
+                int BADGE_WIDTH = 669;
+                int BADGE_HEIGHT = 1044;
+                int PHOTO_LEFT_X = 184;
+                int PHOTO_TOP_Y = 215;
+                int PHOTO_RIGHT_X = 486;
+                int PHOTO_BOTTOM_Y = 517;
                 for (int i = 0; i < employees.Count; i++)
                 {
-                    
+                    SKImage photo = SKImage.FromEncodedData(await client.GetStreamAsync(employees[i].GetPhotoUrl()));
+                    SKImage background = SKImage.FromEncodedData(File.OpenRead("badge.png"));
+                    SKBitmap badge = new SKBitmap(BADGE_WIDTH, BADGE_HEIGHT);
+                    SKCanvas canvas = new SKCanvas(badge);
+                    canvas.DrawImage(background, new SKRect(0, 0, BADGE_WIDTH, BADGE_HEIGHT));
+                    canvas.DrawImage(photo, new SKRect(PHOTO_LEFT_X, PHOTO_TOP_Y, PHOTO_RIGHT_X, PHOTO_BOTTOM_Y));
+                    /*     SKData data = background.Encode();
+                        data.SaveTo(File.OpenWrite("data/employeeBadge.png")); */
                 }
             }
         }
