@@ -5,7 +5,7 @@ namespace CatWorx.BadgeMaker
     {
 
 
-        /* Main function/entry point*/
+        // Main function/entry point
         async static Task Main(string[] args)
         {
             // This is our employee-getting code now
