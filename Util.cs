@@ -57,6 +57,7 @@ namespace CatWorx.BadgeMaker
                 int PHOTO_RIGHT_X = 486;
                 int PHOTO_BOTTOM_Y = 517;
                 int COMPANY_NAME_Y = 150;
+                int EMPLOYEE_NAME_Y = 600;
                 for (int i = 0; i < employees.Count; i++)
                 {
                     // Get the employee photo 
@@ -86,6 +87,17 @@ namespace CatWorx.BadgeMaker
 
                     // Print the company name to the canvas
                     canvas.DrawText(employees[i].GetCompanyName(), BADGE_WIDTH / 2f, COMPANY_NAME_Y, paint);
+
+                    // SKPAINT object to layout the what our employee name will look like
+                    SKPaint paintName = new SKPaint();
+                    paintName.TextSize = 42.0f;
+                    paintName.IsAntialias = true;
+                    paintName.Color = SKColors.Black;
+                    paintName.IsStroke = false;
+                    paintName.TextAlign = SKTextAlign.Center;
+                    paintName.Typeface = SKTypeface.FromFamilyName("Arial");
+
+                    canvas.DrawText(employees[i].GetFullName(), BADGE_WIDTH / 2f, EMPLOYEE_NAME_Y, paintName);
 
                     // Save the image to the data folder
                     SKImage finalImage = SKImage.FromBitmap(badge);
