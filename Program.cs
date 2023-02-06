@@ -31,7 +31,7 @@ namespace CatWorx.BadgeMaker
         }
 
         /* Main function/entry point*/
-async static Task Main(string[] args)
+        async static Task Main(string[] args)
         {
             // This is our employee-getting code now
             List<Employee> employees = GetEmployees();
