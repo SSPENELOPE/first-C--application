@@ -104,7 +104,9 @@ namespace CatWorx.BadgeMaker
                     // Save the image to the data folder
                     SKImage finalImage = SKImage.FromBitmap(badge);
                     SKData data = finalImage.Encode();
-                    data.SaveTo(File.OpenWrite("data/employeeBadge.png"));
+                    // Create unique template to save each badge by employee number
+                    string template = "data/{0}_badge.png";
+                    data.SaveTo(File.OpenWrite(string.Format(template, employees[i].GetId())));
                 }
             }
         }
